@@ -9,15 +9,8 @@ import {
   YAxis,
   Tooltip,
   ResponsiveContainer,
+  CartesianGrid,
 } from "recharts";
-
-// const data = [
-//   { name: "Mon", value: 63000 },
-//   { name: "Tue", value: 64500 },
-//   { name: "Wed", value: 64200 },
-//   { name: "Thu", value: 65800 },
-//   { name: "Fri", value: 65000 },
-// ];
 
 export default function Chart({ data }: { data: CoinData }) {
   return (
@@ -25,7 +18,7 @@ export default function Chart({ data }: { data: CoinData }) {
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-4">
           <div
-            className={`text-4xl mb-4 ${
+            className={`text-4xl  ${
               data.coin === "Bitcoin" ? "text-yellow-400" : "text-purple-400"
             }`}
           >
@@ -49,8 +42,12 @@ export default function Chart({ data }: { data: CoinData }) {
           </p>
         </div>
       </div>
-      <ResponsiveContainer width="100%" height="85%">
+      <div className="flex justify-between py-4">
+        <p>Low: ${data.minPrice}</p> <p>High: ${data.maxPrice}</p>
+      </div>
+      <ResponsiveContainer width="100%" height="78%">
         <LineChart data={data.chatData}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
           <XAxis dataKey="name" stroke="#aaa" />
           <YAxis stroke="#aaa" />
           <Tooltip />
