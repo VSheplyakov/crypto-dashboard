@@ -9,12 +9,12 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2000);
+    const timer = setTimeout(() => setLoading(false), 3000);
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen   font-sans items-center w-full max-w-7xl  bg-white  mx-auto ">
+    <div className="flex flex-col min-h-screen font-sans items-center w-full max-w-7xl mx-auto">
       {!loading && (
         <motion.div
           initial={{ y: -40, opacity: 0 }}

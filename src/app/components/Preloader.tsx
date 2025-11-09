@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { FaBitcoin } from "react-icons/fa";
 import { SiSolana } from "react-icons/si";
+import LoadingBar from "./LoadingBar";
 
 export default function Preloader() {
   return (
@@ -22,15 +23,13 @@ export default function Preloader() {
           <SiSolana />
         </motion.div>
       </div>
-      <div className="flex flex-col gap-4 items-center ">
-        <p className="text-gray-900 text-2xl">Loading Crypto Data</p>
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <p className="text-xl animate-pulse text-gray-500 ">
-            Fetching Bitcoin & Solana rates...
-          </p>
-          <p className="text-lg animate-pulse"></p>
-        </motion.div>
+      <div className="flex flex-col gap-2 items-center animate-pulse">
+        <p className="text-gray-900 text-2xl font-bold">Loading Crypto Data</p>
+        <p className="text-md  text-gray-500 ">
+          Fetching Bitcoin & Solana rates...
+        </p>
       </div>
+      <LoadingBar />
     </div>
   );
 }
