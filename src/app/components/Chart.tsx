@@ -50,7 +50,15 @@ export default function Chart({ data }: { data: CoinData }) {
           <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
           <XAxis dataKey="name" stroke="#aaa" />
           <YAxis stroke="#aaa" />
-          <Tooltip />
+          <Tooltip
+            contentStyle={{
+              border: "1px solid #e5e7eb",
+              borderRadius: "8px",
+              backgroundColor: "rgba(255, 255, 255, 0.3)",
+              boxShadow: "0 4px 12px rgba(0, 0, 0, 0.08)",
+              backdropFilter: "blur(8px)",
+            }}
+          />
           <Line
             type="monotone"
             dataKey="value"
